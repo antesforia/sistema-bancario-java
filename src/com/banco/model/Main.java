@@ -45,7 +45,9 @@ public class Main {
                 2. Depositar
                 3. Retirar
                 4. Aplicar Interes
-                5. Salir
+                5. Mostrar Cuentas Ahorro
+                6. Mostrar Cuentas Corriente
+                7. Salir
                 Escoge una opción:\s""");
         try{
             return Integer.parseInt(consola.nextLine());
@@ -78,6 +80,12 @@ public class Main {
                     aplicarInteres(consola, cuentas);
                 }
                 case 5 -> {
+                    mostrarCuentasAhorro(cuentas);
+                }
+                case 6 -> {
+                    mostrarCuentasCorriente(cuentas);
+                }
+                case 7 -> {
                     System.out.println("Vuelva pronto!");
                     return true;
                 }
@@ -177,4 +185,15 @@ public class Main {
             cuenta.mostrarCuenta();
         }
     }
+
+    public static void mostrarCuentasAhorro(ArrayList<Cuenta> cuentas){
+        cuentas.stream().filter(cuenta -> cuenta instanceof CuentaAhorros)
+                .forEach(Cuenta::mostrarCuenta);
+    }
+
+    public static void mostrarCuentasCorriente(ArrayList<Cuenta> cuentas){
+        cuentas.stream().filter(cuenta -> cuenta instanceof CuentaCorriente)
+                .forEach(Cuenta::mostrarCuenta);
+    }
+
 }

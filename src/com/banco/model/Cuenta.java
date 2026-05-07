@@ -20,6 +20,7 @@ public class Cuenta{
     }
 
     public void mostrarCuenta() {
+        System.out.println("----------------------");
         System.out.println("Cliente: " + cliente.getNombre());
         System.out.println("DNI: " + cliente.getDni());
         System.out.println("Cuenta: " + numeroCuenta);
